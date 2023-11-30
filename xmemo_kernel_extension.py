@@ -22,6 +22,7 @@ def file_is_pointer_file(x):
         return False
 
 def materialize_pointer_file(x):
+    print(f"Materializing {inputhashstr}.pickle")
     try:
         subprocess.run(["git-xet", "materialize", x], check=True)
         return True
