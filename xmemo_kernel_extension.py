@@ -78,7 +78,7 @@ class XMemoMagics(Magics):
                     ovars = {v:pickle.load(f) for v in outputvars}
                     for k,v in ovars.items():
                         ip.user_ns[k] = v
-                        return
+                    return
         except:
             pass
 
