@@ -38,7 +38,7 @@ class XMemoMagics(Magics):
     Provides the %xmemo magic."""
 
     @cell_magic
-    def xmemo(self, line, cell):
+    def xetmemo(self, line, cell):
         '''
         putting 
 
