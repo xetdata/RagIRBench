@@ -17,12 +17,13 @@ def hash_anything(x):
 def file_is_pointer_file(x):
     if os.path.exists(x):
         with open(x, 'rb') as f:
-            return f.readline() == "# xet version 0\n"
+            rl = f.readline()
+            return rl.startswith(b"# xet version 0")
     else:
         return False
 
 def materialize_pointer_file(x):
-    print(f"Materializing {inputhashstr}.pickle")
+    print(f"Materializing {x}.pickle")
     try:
         subprocess.run(["git-xet", "materialize", x], check=True)
         return True
@@ -81,12 +82,12 @@ class XMemoMagics(Magics):
         except:
             pass
 
-        get_ipython().run_cell(cell)
-
-        os.makedirs(memopath, exist_ok=True)
-        with open(memo_file, 'wb') as f:
-            for v in outputvars:
-                pickle.dump(ip.user_ns[v], f)
+        ret = ip.run_cell(cell)
+        if ret.success:
+            os.makedirs(memopath, exist_ok=True)
+            with open(memo_file, 'wb') as f:
+                for v in outputvars:
+                    pickle.dump(ip.user_ns[v], f)
 
    
 def load_ipython_extension(ip):
