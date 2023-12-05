@@ -3,8 +3,13 @@ You Do Not Need a Vector Database
 RAG (Retrieval Augmented Generation) has become the primary method to add
 "memory" to an LLM, allowing the LLM to read and reference documents from
 anywhere.  Vector databases have risen in popularity as the method of choice to
-find and retrieve these ocuments.  In this notebook, I’d like to make the case
-that you do not need a vector database for RAG.
+find and retrieve these ocuments.  
+
+In this notebook, I make the case that you do not need a vector database for RAG.
+The document retrieval problem for RAG is basically a case for information retrieval
+and there are simpler solutions to do so. Vector embeddings are *still* useful,
+but they should be used in a later stage of the IR pipeline and not as the
+first stage retrieval, for which there are simpler and more performant solutions.
 
 Blog Post [here](http://about.xethub.com/blog/you-dont-need-a-vector-database)
 and Notebook [here](you_do_not_need_a_vector_database.ipynb)
