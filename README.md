@@ -11,8 +11,9 @@ and there are simpler solutions to do so. Vector embeddings are *still* useful,
 but they should be used in a later stage of the IR pipeline and not as the
 first stage retrieval, for which there are simpler and more performant solutions.
 
-Blog Post [here](http://about.xethub.com/blog/you-dont-need-a-vector-database)
-and Notebook [here](you_do_not_need_a_vector_database.ipynb)
+Full blog post [here](http://about.xethub.com/blog/you-dont-need-a-vector-database)
+
+Notebook [here](you_do_not_need_a_vector_database.ipynb)
 
 To run the notebook:
 Install the git-xet extension from 
